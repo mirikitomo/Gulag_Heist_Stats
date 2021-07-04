@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Gulag Heist Stats</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="shortcut icon" href="android-chrome-192x192">
+  <link href="https://fonts.googleapis.com/css?family=Faustina|Great+Vibes|Sansita&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable = no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta property="og:image" content="images/social-preview.png">
+  <meta property="og:type" content="website">
+  <!--<meta property="og:url" content="https://mirikitomo.github.io/paycheck_calculator/">-->
+  <meta property="og:title" content="Gulag Heist Kill Race Tournament Calculator">
+  <meta property="og:description" content="Check team's total tournaments points">
+
+  <script>
+    function compute() { 
+	  //Data from Game One for tournament
+	  var team_kills_1 = Number(document.getElementById("team_kills_1").value);
+	  var team_placement_1 = Number(document.getElementById("team_placement_1").value);
+	  var total_points_1 = team_kills_1 + team_placement_1;
+	  
+	  //Data from Game Two for tournament
+	  var team_kills_2 = Number(document.getElementById("team_kills_2").value);
+	  var team_placement_2 = Number(document.getElementById("team_placement_2").value);
+	  var total_points_2 = team_kills_2 + team_placement_2;
+	  
+	  //Data for Best Two Games
+	  var best_2_kills = team_kills_1 + team_kills_2;
+	  var total_placement_points = team_placement_1 + team_placement_2;
+	  var grand_total_points = total_points_1 + total_points_2; 
+
+      document.getElementById("placement_points_1").value = team_placement_1;
+      document.getElementById("total_points_1").value = total_points_1;
+      document.getElementById("placement_points_2").value = team_placement_2;
+      document.getElementById("total_points_2").value = total_points_2;
+      document.getElementById("best_2_kills").value = best_2_kills;
+	  document.getElementById("total_placement_points").value = total_placement_points;
+	  document.getElementById("grand_total_points").value = grand_total_points;
+    }
+  </script>
+</head>
+<body>
+  <div class="top-container">
+  <p class=breadcrumb><a href="index.html">< K/D Calculator</a></p>
+    <img class="squad" src="images/squad.png" alt="squad-image">
+    <h2>Gulag Heist</h2>
+	<h3>Kill Race Tournament Points</h3>
+  </div>
+  <!-- you can include the HTML from other pens in your pen -->
+  <div class="middle-container">
+	<center>
+      <form id="tournament_points">
+        <table border=1>
+		  <tr>
+			<td></td>
+            <td align=left><a>Best Game One</a></td>
+          </tr>
+		  <tr>
+            <td align=right >Team's Total Kills:</td>
+            <td><input type="number" size=20 id="team_kills_1"></td>
+          </tr>
+          <tr>
+            <td align=right>Team's Placement:</td>
+            <td><select name="placement" id="team_placement_1">
+			<option value=10>1st</option>
+			<option value=9>2nd</option>
+			<option value=8>3rd</option>
+			<option value=7>4th</option>
+			<option value=6>5th</option>
+			<option value=5>6th</option>
+			<option value=4>7th</option>
+			<option value=3>8th</option>
+			<option value=2>9th</option>
+			<option value=1>10th</option>
+			</select>
+			</td>
+          </tr>
+		  <tr>
+            <td align=right>Placement Points:</td>
+            <td><input type="number" id="placement_points_1" size=20 readonly></td>
+          </tr>
+          <tr>
+            <td align=right>Total Points:</td>
+            <td><input type="number" id="total_points_1" size=20 readonly></td>
+          </tr>
+		  <tr class="blank_row">
+            <td colspan=2 align=center>
+          </tr>
+          <tr>
+			<td></td>
+            <td align=left><a>Best Game Two</a></td>
+          </tr>
+		  <tr>
+            <td align=right>Team's Total Kills:</td>
+            <td><input type="number" id="team_kills_2" size=20></td>
+          </tr>
+		  <tr>
+            <td align=right>Team's Placement:</td>
+            <td><select name="placement" id="team_placement_2">
+			<option value=10>1st</option>
+			<option value=9>2nd</option>
+			<option value=8>3rd</option>
+			<option value=7>4th</option>
+			<option value=6>5th</option>
+			<option value=5>6th</option>
+			<option value=4>7th</option>
+			<option value=3>8th</option>
+			<option value=2>9th</option>
+			<option value=1>10th</option>
+			</select>
+			</td>
+          </tr>
+		  <tr>
+            <td align=right>Placement Points:</td>
+            <td><input type="number" id="placement_points_2" size=20 readonly></td>
+          </tr>
+		  <tr>
+            <td align=right>Total Points:</td>
+            <td><input type="number" id="total_points_2" size=20 readonly></td>
+          </tr>
+		  <tr class="blank_row">
+            <td colspan=2 align=center>
+          </tr>
+		  <tr>
+			<td></td>
+            <td align=left><a>Best 2 Games Total</a></td>
+          </tr>
+          <tr>
+            <td align=right>Best 2 kills:</td>
+            <td><input type=text id="best_2_kills" size=20 readonly></td>
+          </tr>
+		  <tr>
+            <td align=right>Placement Points:</td>
+            <td><input type=text id="total_placement_points" size=20 readonly></td>
+          </tr>
+		  <tr>
+            <td align=right>Total Points:</td>
+            <td><input type=text id="grand_total_points" size=20 readonly></td>
+          </tr>
+          <tr class="blank_row">
+            <td colspan=2 align=center>
+          </tr>
+          <tr>
+            <td colspan=1 align=right><a class="btn" href="#" onclick="compute();">Calculate</a>
+              <!-- input type=button class="btn" value="Calculate" onClick="compute()" -->
+            </td>
+            <td align=left><a class="btn" href="#" onclick="document.getElementById('paycheck').reset();">Clear</a>
+            </td>
+          </tr>
+        </table>
+      </form>
+    </center>
+    <div class="contact-me">
+      <h3>Get In Touch</h3>
+      <p>If something is not working or you have a feedback.</p>
+      <a class="btn" href="mailto:steven.chaparro@icloud.com">CONTACT ME</a>
+    </div>
+  </div>
+
+  <div class="bottom-container">
+    <a class="footer-link" href="https://www.linkedin.com/in/stevenchaparro" target=_blank>LinkedIn</a>
+    <a class="footer-link" href="https://www.facebook.com/Schaparro" target=_blank>Facebook</a>
+    <a class="footer-link" href="https://mirikitomo.github.io/cv/" target=_blank>Personal CV</a>
+    <a class="footer-link" href="https://mirikitomo.github.io/steven-new-website/" target=_blank>Steven's new website</a>
+    <p class="author">© 2019 Steven Chaparro Gamarra.</p>
+  </div>
+  <div>Icons made by <a href="https://flat-icons.com/" title="Flat Icons">Flat Icons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+
+</body>
+
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Gulag Heist Stats</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="shortcut icon" href="android-chrome-192x192">
+  <link href="https://fonts.googleapis.com/css?family=Faustina|Great+Vibes|Sansita&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable = no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta property="og:image" content="images/social-preview.png">
+  <meta property="og:type" content="website">
+  <!--<meta property="og:url" content="https://mirikitomo.github.io/paycheck_calculator/">-->
+  <meta property="og:title" content="Gulag Heist Kills/death Ratio Calculator">
+  <meta property="og:description" content="Check your K/D stats and tournaments points">
+
+  <script>
+    function compute() { 
+	  //New computation for calculating kds
+	  var total_kills = document.getElementById("kills").value;
+	  var total_deaths = document.getElementById("deaths").value;
+	  var kills_deaths_ratio = total_kills / total_deaths;
+	  
+	  var next_kd = kills_deaths_ratio + 0.01;
+	  var kills_needed = (total_deaths * next_kd) - total_kills;
+	  var previous_kd = kills_deaths_ratio - 0.01;
+	  var deaths_needed = (total_kills / previous_kd) - total_deaths; 
+
+      document.getElementById("kills_deaths_ratio").value = kills_deaths_ratio.toFixed(2);
+      document.getElementById("next_kd").value = next_kd.toFixed(2);
+      document.getElementById("kills_needed").value = kills_needed.toFixed(0);
+      document.getElementById("previous_kd").value = previous_kd.toFixed(2);
+      document.getElementById("deaths_needed").value = deaths_needed.toFixed(0);
+    }
+  </script>
+</head>
+
+<body>
+  <div class="top-container">
+  <p class=breadcrumb><a href="tournament.html">> Tournament Calculator</a></p>
+    <img class="kd" src="images/kd ratio.png" alt="kd-image">
+    <h2>Gulag Heist</h2>
+	<h3>Kills/death Ratio Calculator</h3>
+  </div>
+  <!-- you can include the HTML from other pens in your pen -->
+  <div class="middle-container">
+    <center>
+      <form id="kd_calculator">
+        <table border=1>
+          <tr>
+            <td align=right bgcolor="#90ee90">Total Kills:</td>
+            <td><input type="number" size=20 id="kills"></td>
+          </tr>
+          <tr>
+            <td align=right bgcolor="#ffcccb">Total Deaths:</td>
+            <td><input type="number" id="deaths" size=20></td>
+          </tr>
+          <tr>
+            <td align=right>K/D Ratio:</td>
+            <td><input type="number" id="kills_deaths_ratio" size=20 readonly></td>
+          </tr>
+		  <tr class="blank_row">
+            <td colspan=2 align=center>
+          </tr>
+          <tr>
+            <td align=right>Next K/D:</td>
+            <td><input type=text id="next_kd" size=20 readonly></td>
+          </tr>
+		  <tr>
+            <td align=right>Kills needed (with cero deaths) for Next K/D:</td>
+            <td><input type="number" id="kills_needed" size=20 readonly></td>
+          </tr>
+		  <tr class="blank_row">
+            <td colspan=2 align=center>
+          </tr>
+          <tr>
+            <td align=right>Previous K/D:</td>
+            <td><input type=text id="previous_kd" size=20 readonly></td>
+          </tr>
+		  <tr>
+            <td align=right>Deaths needed (with cero deaths) for previous K/D:</td>
+            <td><input type=text id="deaths_needed" size=20 readonly></td>
+          </tr>
+          <tr>
+            <td colspan=1 align=center><a class="btn" href="#" onclick="compute();">Calculate</a>
+              <!-- input type=button class="btn" value="Calculate" onClick="compute()" -->
+            </td>
+            <td align=left><a class="btn" href="#" onclick="document.getElementById('paycheck').reset();">Clear</a>
+            </td>
+          </tr>
+		  <tr class="blank_row">
+            <td colspan=2 align=center>
+          </tr>
+        </table>
+      </form>
+    </center>
+    <div class="contact-me">
+      <h3>Get In Touch</h3>
+      <p>If something is not working or you have a feedback.</p>
+      <a class="btn" href="mailto:steven.chaparro@icloud.com">CONTACT ME</a>
+    </div>
+  </div>
+
+  <div class="bottom-container">
+    <a class="footer-link" href="https://www.linkedin.com/in/stevenchaparro" target=_blank>LinkedIn</a>
+    <a class="footer-link" href="https://www.facebook.com/Schaparro" target=_blank>Facebook</a>
+    <a class="footer-link" href="https://mirikitomo.github.io/cv/" target=_blank>Personal CV</a>
+    <a class="footer-link" href="https://mirikitomo.github.io/steven-new-website/" target=_blank>Steven's new website</a>
+    <p class="author">© 2019 Steven Chaparro Gamarra.</p>
+  </div>
+  <div>Icons made by <a href="https://flat-icons.com/" title="Flat Icons">Flat Icons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+
+</body>
+
+</html>
