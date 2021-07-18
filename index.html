@@ -23,11 +23,14 @@
 	  var total_kills = document.getElementById("kills").value;
 	  var total_deaths = document.getElementById("deaths").value;
 	  var kills_deaths_ratio = total_kills / total_deaths;
+	    kills_deaths_ratio = kills_deaths_ratio.toFixed(2);
 	  
 	  var next_kd = kills_deaths_ratio + 0.01;
 	  var kills_needed = (total_deaths * next_kd) - total_kills;
+	    kills_needed = Math.ceil(kills_needed);
 	  var previous_kd = kills_deaths_ratio - 0.01;
-	  var deaths_needed = (total_kills / previous_kd) - total_deaths; 
+	  var deaths_needed = (total_kills / previous_kd) - total_deaths;
+	    deaths_needed = Math.ceil(deaths_needed);
 
       document.getElementById("kills_deaths_ratio").value = kills_deaths_ratio.toFixed(2);
       document.getElementById("next_kd").value = next_kd.toFixed(2);
