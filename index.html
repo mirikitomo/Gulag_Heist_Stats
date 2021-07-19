@@ -28,7 +28,7 @@
 	  var next_kd = kills_deaths_ratio + 0.005;
 	  var kills_needed = (total_deaths * next_kd.toFixed(3)) - total_kills;
 	    kills_needed = Math.ceil(kills_needed);
-	  var previous_kd = kills_deaths_ratio - 0.006;
+	  var previous_kd = kills_deaths_ratio - 0.005;
 	  var deaths_needed = (total_kills / previous_kd.toFixed(3)) - total_deaths;
 	    deaths_needed = Math.ceil(deaths_needed);
 
